@@ -1,0 +1,6 @@
+streamlit
+langchain
+langgraph
+openai
+docx2txt
+typing_extensions
