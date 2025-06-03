@@ -11,7 +11,9 @@ llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
 # --- Prompts ---
 READER_PROMPT = """You are an expert BCG consultant. Below is a Word document with updates for several countries. Some text is in paragraphs, some in tables.
-Extract and summarize each country’s key updates.
+Extract and summarize each country’s key updates from the document.
+Do not add in any additional text or information.
+Only reference and take information from the report and not from your own knowledge.
 
 Document:
 ----
@@ -23,7 +25,8 @@ Country: <country name>
 Summary: <executive summary>
 """
 
-SUMMARY_PROMPT = """You are a strategy analyst. Based on the following country updates, summarize the key regional themes and strategic takeaways.
+SUMMARY_PROMPT = """You are a strategy analyst from BCG. Based on the following country updates, summarize the key regional themes and strategic takeaways.
+Only reference and take information from the report and not from your own knowledge.
 
 Country Updates:
 ----
@@ -33,12 +36,13 @@ Country Updates:
 Return a 3-paragraph summary with insights across countries.
 """
 
-EMAIL_PROMPT = """You are a senior communications manager. Write a professional email regarding news monitoring highlights from our Asia countries, to the Asia President based on the summary below. 
+EMAIL_PROMPT = """You are a senior communications director. Write a professional email regarding news monitoring highlights from our Asia countries, to the Asia President based on the summary below.
 The email content is to contain the below two sections:
 1.  Key highlights from the news monitoring (indicate the country)
-2.  Recommendations
-Keep email within 400 words. 
-Do not include any intro or summary sentence. Do not add extra text.
+2.  Recommendations to be taken only from the reports, do not add in any additional text or information.
+Keep email within 300 words.
+Do not need any introduction or summary in the email.
+Do not use your own knowledge.
 
 Summary:
 ----
