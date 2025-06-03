@@ -1,6 +1,7 @@
 
 import streamlit as st
-from langchain.document_loaders import Docx2txtLoader
+#from langchain.document_loaders import Docx2txtLoader
+from langchain_community.document_loaders import Docx2txtLoader
 from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, END
 from typing_extensions import TypedDict
