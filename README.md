@@ -1,5 +1,5 @@
 
-# AI News Monitoring Email Assistant
+# Email summary AI Agent (news monitoring reports)
 
 This Streamlit app uses LangGraph and OpenAI to read weekly news monitoring reports in `.docx` format, extract key country-level updates, summarize regional insights, and auto-generate a polished professional email draft for executive stakeholders.
 
