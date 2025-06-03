@@ -1,5 +1,7 @@
 streamlit
 langchain
+langchain-community
+langchain-openai
 langgraph
 openai
 docx2txt
