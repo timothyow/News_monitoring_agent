@@ -36,13 +36,22 @@ Country Updates:
 Return a 3-paragraph summary with insights across countries.
 """
 
-EMAIL_PROMPT = """You are a senior communications director. Write a professional email regarding news monitoring highlights from our Asia countries, to the Asia President based on the summary below.
-The email content is to contain the below two sections:
-1.  Key highlights from the news monitoring (indicate the country)
-2.  Recommendations to be taken only from the reports, do not add in any additional text or information.
-Keep email within 300 words.
-Do not need any introduction or summary in the email.
-Do not use your own knowledge.
+EMAIL_PROMPT = """You are a senior communications director. Write a professional email to the Asia President (Corine) regarding news monitoring highlights from our Asia countries, based on the summary provided below.
+
+Structure the email as follows:
+- Start the email with: "Dear Corine, this is a TLDR summary of news monitoring highlights for this week."
+- For each country mentioned, present both the insight and the corresponding recommendation.
+- Use the format:
+
+Country: [Country Name]  
+Insight: [Insight]
+Recommendation: [Recommendation]
+
+- Do not add any introductory or summary statements beyond the prescribed structure.
+- End the email with: "For full details, please see attached report."
+- Do not include any additional information beyond what is provided in the summary.
+- Keep the email concise and within 300 words.
+- Ensure the tone is polished and professional.
 
 Summary:
 ----
@@ -106,8 +115,8 @@ builder.add_edge(EDITOR, END)
 graph = builder.compile()
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="News Monitoring Email Generator", layout="centered")
-st.title("📰 AI News Monitoring Email Assistant")
+st.set_page_config(page_title="News Summary Email Generator", layout="centered")
+st.title("📰 Report Summary Email Assistant")
 
 uploaded_file = st.file_uploader("Upload a .docx file with country updates:", type=["docx"])
 
