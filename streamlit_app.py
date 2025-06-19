@@ -11,7 +11,7 @@ llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
 # --- Prompts ---
 READER_PROMPT = """You are an expert BCG consultant. Below is a Word document with updates for several countries. Some text is in paragraphs, some in tables.
-Extract and summarize each country’s key updates from the document.
+Extract and summarize each country’s key updates from the document, include key numbers if available. 
 Do not add in any additional text or information.
 Only reference and take information from the report and not from your own knowledge.
 
@@ -25,8 +25,8 @@ Country: <country name>
 Summary: <executive summary>
 """
 
-SUMMARY_PROMPT = """You are a strategy analyst from BCG. Based on the following country updates, summarize the key regional themes and strategic takeaways.
-Only reference and take information from the report and not from your own knowledge.
+SUMMARY_PROMPT = """You are a strategy analyst from BCG. Based on the following country updates, summarize the key regional themes and strategic takeaways, include key numbers if available. 
+Only reference and take information from the report and not from your own knowledge. 
 
 Country Updates:
 ----
@@ -44,7 +44,7 @@ Structure the email as follows:
 - Use the format:
 
 Country: [Country Name]  
-Insight: [Insight]
+Insight: [Insight, include key numbers if available]
 Recommendation: [Recommendation]
 
 - Do not add any introductory or summary statements beyond the prescribed structure.
